@@ -2,7 +2,7 @@ package tictactoe;
 
 
 import tictactoe.spieler.*;
-import tictactoe.spieler.beispiel.ReinforcementSpieler;
+//import tictactoe.spieler.beispiel.ReinforcementSpieler;
 import tictactoe.spieler.beispiel.ReinforcementSpielerLeer;
 import tictactoe.spieler.beispiel.Zufallsspieler;
 
