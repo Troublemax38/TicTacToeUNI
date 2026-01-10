@@ -34,10 +34,10 @@ public class ReinforcementSpieler implements ILernenderSpieler {
 
     double[] spielfeld = new double[9];
     double epsilon = 0;
-    private int letzterZug;
+    int letzterZug;
 
     Spielfeld feld = new Spielfeld();
-    private Spielfeld letzterZustand;
+    Spielfeld letzterZustand;
 
     private static final Random rnd = new Random();
 
@@ -133,22 +133,19 @@ public class ReinforcementSpieler implements ILernenderSpieler {
             try{
                 //Es sollte zwischen Kreis und Kreuz immer wieder getauscht werden.
                 //Nach genügend Training kann gegen einen weiteren ReinforcementSpieler gespielt werden.
-                winner = game.neuesSpiel(new Zufallsspieler("Spieler2") ,player1 , 0,false);
+                winner = game.neuesSpiel(player1 , new Zufallsspieler("Spieler2"), 0,false);
                 System.out.println(winner);
             } catch (Exception e) {
                 if(e.getClass().getName().contains("IllegalerZugException")){
                     double reward = checkReward(player1.feld, true, player1.farbe);
                     player1.trainNetz(player1.letzterZustand, player1.letzterZug, reward);
-                    System.out.println("IllZugException");
                 }
                 throw e;
             }
 
             double reward = checkReward(player1.feld, false, player1.farbe);
-            System.out.println("Reward = " + reward);
 
             player1.trainNetz(player1.letzterZustand, player1.letzterZug, reward);
-            System.out.println("Netz trainiert");
 
             player1.epsilon = Math.max(0.05, player1.epsilon * 0.995);
         }
@@ -163,7 +160,7 @@ public class ReinforcementSpieler implements ILernenderSpieler {
 
         // nach Training im Spielbetrieb greedy
         player1.epsilon = 0;
-
+        this.multiLayerPerceptron = player1.multiLayerPerceptron;
         return abbruchbedingung.abbruch();
     }
 
@@ -264,7 +261,7 @@ public class ReinforcementSpieler implements ILernenderSpieler {
         // Exploration
         if(rnd.nextDouble() < epsilon){
             int randomZug = verfuegbareZuege.get(rnd.nextInt(verfuegbareZuege.size()));
-            letzterZustand = feld.clone(); // Annahme: clone() liefert eine Kopie
+            letzterZustand = feld.clone();
             letzterZug = randomZug;
             return randomZug;
         }
