@@ -10,7 +10,7 @@ public interface ILernenderSpieler extends ISpieler {
 	 * @param abbruchbedingung
 	 * @return
 	 */
-	boolean trainieren(IAbbruchbedingung abbruchbedingung);
+	boolean trainieren(IAbbruchbedingung abbruchbedingung) throws IOException;
 	
 	void speichereWissen(String name) throws IOException;
 	

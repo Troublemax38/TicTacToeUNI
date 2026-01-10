@@ -2,20 +2,22 @@ package tictactoe;
 
 
 import tictactoe.spieler.*;
-//import tictactoe.spieler.beispiel.ReinforcementSpieler;
+import tictactoe.spieler.ReinforcementSpieler;
 import tictactoe.spieler.beispiel.ReinforcementSpielerLeer;
 import tictactoe.spieler.beispiel.Zufallsspieler;
+
+import java.io.IOException;
 
 /** Klasse um einen Wettkampf zwischen zwei Spielern durchzuführen */
 public class Wettkampf {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		ISpieler spieler1 = new Zufallsspieler("Zufall");
 		
 		//Fügen Sie nachfolgend Ihren eigenen lernenden Spieler ein.
 		//Dieser muss die Schnittstelle ILernenderSpieler implementieren
 		//Der hier nachfolgende Spieler ist nur ein (nicht funktionierendes) Muster
-		ILernenderSpieler spieler2 = new ReinforcementSpielerLeer("Lernender Spieler");
+		ILernenderSpieler spieler2 = new ReinforcementSpieler("Lernender Spieler");
 
 		TicTacToe spiel = new TicTacToe();
 		ISpieler gewinner;

@@ -2,6 +2,7 @@ package tictactoe;
 
 
 import tictactoe.spieler.ISpieler;
+import tictactoe.spieler.ReinforcementSpieler;
 import tictactoe.spieler.beispiel.Zufallsspieler;
 
 /** Definiert das Spielfeld und enthält Methoden, um ein Spiel durchzuführen.
@@ -87,7 +88,9 @@ public class TicTacToe {
 	public static void main(String[] args) {
 		TicTacToe ttt = new TicTacToe();
 		ISpieler spieler1 = new Zufallsspieler("Spieler1");
-		ISpieler spieler2 = new Zufallsspieler("Spieler2");
+		//ISpieler spieler1 = new ReinforcementSpieler("Spieler1");
+		//ISpieler spieler2 = new Zufallsspieler("Spieler2");
+		ISpieler spieler2 = new ReinforcementSpieler("Spieler2");
 		
 		ISpieler gewinner = ttt.neuesSpiel(spieler1, spieler2, 150, true); //150 Sekunden Gesamtbedenkzeit pro ISpieler
 		if (gewinner == null) {
