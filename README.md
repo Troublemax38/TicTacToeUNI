@@ -2,7 +2,7 @@
 
 Dieses Projekt wurde im Rahmen einer universitären Lehrveranstaltung erstellt und dient ausschließlich akademischen und didaktischen Zwecken.
 
-Die Implementierung stellt einen experimentellen Ansatz dar und erhebt keinen Anspruch auf Vollständigkeit, Korrektheit oder Produktivfähigkeit. Der Code wurde primär zur Demonstration von Lernverfahren entwickelt.
+Die Implementierung stellt einen experimentellen Ansatz dar und erhebt keinen Anspruch auf Vollständigkeit, Korrektheit oder Produktivfähigkeit. Der Code wurde primär zur Demonstration von Lernverfahren entwickelt und dient als Prüfungsleistung.
 
 Die Nutzung erfolgt auf eigene Verantwortung.
 
